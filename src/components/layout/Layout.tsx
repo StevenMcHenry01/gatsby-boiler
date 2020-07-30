@@ -1,8 +1,13 @@
+// third party imports
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { ThemeProvider } from '@material-ui/core/styles'
 
-import Header from '../../header'
+// my imports
+import Header from '../header/Header'
+import Footer from  '../footer/Footer'
 import './layout.scss'
+import { theme } from '../../styles/theme'
 
 const Layout = ({ children }: { children: any }) => {
   const data = useStaticQuery(graphql`
@@ -16,7 +21,7 @@ const Layout = ({ children }: { children: any }) => {
   `)
 
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -26,13 +31,9 @@ const Layout = ({ children }: { children: any }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
-    </React.Fragment>
+      <Footer />
+    </ThemeProvider>
   )
 }
 

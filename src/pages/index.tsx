@@ -1,9 +1,11 @@
+// 3rd party imports
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/wrappers/layout/layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
+// my imports
+import Layout from '../components/layout/Layout'
+import Image from '../components/image/Image'
+import SEO from '../components/seo/seo'
 
 const IndexPage = () => (
   <Layout>
@@ -15,7 +17,6 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 )
 
